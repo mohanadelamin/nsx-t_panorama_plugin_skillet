@@ -46,7 +46,7 @@ variables:
     type_hint: text
   - name: svc_manager_url
     description: Specify the URL that Panorama will use to establish a connection with the NSX Manager.
-    default: https://localhost/
+    default: https://localhost
     type_hint: text
   - name: svc_manager_user
     description: Enter the authentication username configured on the NSX Manager.
