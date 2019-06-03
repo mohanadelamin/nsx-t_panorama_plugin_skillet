@@ -34,7 +34,7 @@ variables:
     type_hint: text
   - name: ovf_url
     description: Enter the URL (IP address or host name and path) where the NSX Manager can access the OVF file to provision new VM-Series firewalls.
-    default: nsx-t-dg
+    default: http://localhost/vm.ovf
     type_hint: text
   - name: svc_definition
     description: Enter the name for the service you want to display on the NSX Manager.
@@ -50,12 +50,12 @@ variables:
     type_hint: text
   - name: svc_manager_user
     description: Enter the authentication username configured on the NSX Manager.
-    default: https://localhost/
+    default: admin
     type_hint: text
   - name: svc_manager_pass
     description: Enter the authentication password configured on the NSX Manager.
-    default: https://localhost/
-    type_hint: text
+    default: admin
+    type_hint: password
 
 # snippets used for api configuration including xpath and element as file name
 # files will load in the order listed
