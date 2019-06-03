@@ -1,0 +1,8 @@
+  <entry name="{{ svc_manager }}">
+    <nsx-manager-url>{{ svc_manager_url }}</nsx-manager-url>
+    <nsx-manager-login>{{ svc_manager_user }}</nsx-manager-login>
+    <nsx-manager-password>{{ svc_manager_pass }}</nsx-manager-password>
+    <service-definitions>
+      <member>{{ svc_definition }}</member>
+    </service-definitions>
+  </entry>

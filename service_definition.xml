@@ -1,0 +1,7 @@
+  <entry name="{{ svc_definition }}">
+    <device-group>{{ device_group }}</device-group>
+    <template>{{ template_stack }}</template>
+    <ovf-url>{{ ovf_url }}</ovf-url>
+    <insertion-type>NORTH_SOUTH</insertion-type>
+    <host-type>ESXI</host-type>
+  </entry>

@@ -1,0 +1,68 @@
+# this is the name of this skillet, should be unique within a given repository
+name: nsx-t_plugin_configurator
+
+# label should be a human readable label that conveys what this skillet will do
+label: Configure NSX-T Panorama plugin.
+
+# description is a longer more informative version of a label
+description: Configure NSX-T Panorama plugin.
+
+# type instructs Panhandler how to consume this skillet
+type: Panorama
+
+# extends allows you to include other skillets along with this one
+extends:
+
+# labels allow extensible configuration options per skillet type. For example, lables can be used to
+# group multiple skillets of the same type (pan-os skillets labeled as version: 9.0 for example)
+labels:
+  collection:
+    - Datacenter Virtualization
+
+
+# Variables will be presented to the user via the Panhandler GUI. These values will then be passed to
+# the terraform binary as '--var' options, thus overriding any tfvars entries.
+# Variable names MUST match the names of the defined terraform variables
+variables:
+  - name: template_stack
+    description: Select the template stack to which the VM-Series firewalls will be assigned.
+    default: nsx-t-stack
+    type_hint: text
+  - name: device_group
+    description: Select the device group or device group hierarchy to which these VM-Series firewalls will be assigned
+    default: nsx-t-dg
+    type_hint: text
+  - name: ovf_url
+    description: Enter the URL (IP address or host name and path) where the NSX Manager can access the OVF file to provision new VM-Series firewalls.
+    default: nsx-t-dg
+    type_hint: text
+  - name: svc_definition
+    description: Enter the name for the service you want to display on the NSX Manager.
+    default: ngfw
+    type_hint: text
+  - name: svc_manager
+    description: Enter a name to identify the VM-Series firewall as a service. This name displays on the NSX Manager and is used to deploy the VM-Series firewall on-demand.
+    default: paloaltonetworks
+    type_hint: text
+  - name: svc_manager_url
+    description: Specify the URL that Panorama will use to establish a connection with the NSX Manager.
+    default: https://localhost/
+    type_hint: text
+  - name: svc_manager_user
+    description: Enter the authentication username configured on the NSX Manager.
+    default: https://localhost/
+    type_hint: text
+  - name: svc_manager_pass
+    description: Enter the authentication password configured on the NSX Manager.
+    default: https://localhost/
+    type_hint: text
+
+# snippets used for api configuration including xpath and element as file name
+# files will load in the order listed
+snippets:
+  - name: service_definition
+    xpath: /config/devices/entry[@name='localhost.localdomain']/plugins/vmware_nsx/nsx_t/service-definition
+    file: service_definition.xml
+  - name: service_manager
+    xpath: /config/devices/entry[@name='localhost.localdomain']/plugins/vmware_nsx/nsx_t/service-manager
+    file: service_manager.xml
